@@ -33,12 +33,10 @@
 | selling_price      | integer       | null: false       |
 | user               | references    | foreign_key: true |
 
-
-
 ### Association
 
 - belongs_to :user
-- has_one :addresses
+- has_one :orders
 
 ## orders テーブル
 <!-- 購入記録 -->
