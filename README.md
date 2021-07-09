@@ -54,13 +54,13 @@
 - belongs_to :item
 - has_one :address
 
-## address テーブル
+## addresses テーブル
 <!-- 配送先情報 -->
 
 | Column           | Type       | Options           |
 | ---------------- | ---------- | ----------------- |
 | postal_code      | string     | null: false       |
-| delivery_area_id | references | null: false       |
+| delivery_area_id | integer    | null: false       |
 | city             | string     | null: false       |
 | block            | string     | null: false       |
 | building         | string     | ----------------- |
