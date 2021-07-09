@@ -26,12 +26,13 @@
 | ------------------ | ------------- | ----------- |
 | item_name          | string        | null: false |
 | item_description   | text          | null: false |
+| selling_price      | integer       | null: false |
 <!-- | category           | pull          | null: false |
 | item_state         | references    |             |
 | delivery_burden    | string        | null: false |
 | delivery_area      | text          | null: false |
 | delivery_day       | text          | null: false | -->
-| selling_price      | integer       | null: false |
+
 
 ### Association
 
@@ -61,12 +62,12 @@
 | Column       | Type       | Options         |
 | ------------ | ---------- | --------------- |
 | postal_code  | text       | null: false     |
-<!-- | prefectures   | references |                 | -->
 | city         | text       | null: false     |
 | block        | text       | null: false     |
 | building     | text       |                 |
 | phone_number | integer    | null: false     |
 | order_id     | references | --------------- |
+<!-- | prefectures   | references |                 | -->
 
 ### Association
 
