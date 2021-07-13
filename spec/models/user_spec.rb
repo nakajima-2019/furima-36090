@@ -82,22 +82,22 @@ RSpec.describe User, type: :model do
       it 'last_nameが英数字が混じると登録できない' do
         @user.last_name = 'あイ漢a1'  
         @user.valid?
-        expect(@user.errors.full_messages).to include "a"
+        expect(@user.errors.full_messages).to include "Last name is invalid"
       end
       it 'last_name_kanaが英数字、漢字、ひらがなが混じると登録できない' do
         @user.last_name_kana = 'あイ漢a1' 
         @user.valid?
-        expect(@user.errors.full_messages).to include "ak"
+        expect(@user.errors.full_messages).to include "Last name kana is invalid"
       end
       it 'first_nameが英数字が混じると登録できない' do
         @user.first_name = 'あイ漢a1' 
         @user.valid?
-        expect(@user.errors.full_messages).to include "ak"
+        expect(@user.errors.full_messages).to include "First name is invalid"
       end
       it 'first_name_kanaが英数字、漢字、ひらがなが混じると登録できない' do
         @user.first_name_kana = 'あイ漢a1' 
         @user.valid?
-        expect(@user.errors.full_messages).to include "a"
+        expect(@user.errors.full_messages).to include "First name kana is invalid"
       end
     end
   end
