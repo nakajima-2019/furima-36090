@@ -6,7 +6,13 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-  end
+    # def autheniticate_user
+     if !user_signed_in?
+        flash[:notice]="You need to sign in or sign up before continuing."
+        redirect_to("/users/sign_in")
+      end
+    end
+
 
   def create
     @item = Item.new(item_params)
