@@ -10,21 +10,6 @@ RSpec.describe User, type: :model do
       it 'nicknameとemail、passwordとpassword_confirmation、last_nameとfirst_name、last_name_kanaとfirst_name_kana、birthdateが存在すれば登録できる' do
         expect(@user).to be_valid
       end
-      it 'passwordとpassword_confirmationが6文字以上で英数字の混合であれば登録できる' do
-        @user.password = 'a00000'
-        @user.password_confirmation = 'a00000'
-        expect(@user).to be_valid
-      end
-      it 'last_nameとfirst_nameが漢字、ひらがな、カタカナであれば登録できる' do
-        @user.last_name = '漢字ひらカナ'
-        @user.first_name = '漢字ひらカナ'
-        expect(@user).to be_valid
-      end
-      it 'last_name_kanaとfirst_name_kanaがカタカナであれば登録できる' do
-        @user.last_name_kana = 'カナ'
-        @user.first_name_kana = 'カナ'
-        expect(@user).to be_valid
-      end
     end
 
     context '新規登録できないとき' do
