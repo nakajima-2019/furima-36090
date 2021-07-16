@@ -29,27 +29,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include "Image can't be blank"
       end
       it 'categoryが空では登録できない' do
-        @item.category_id = '1'
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Category can't be blank"
       end
       it 'item_stateが空では登録できない' do
-        @item.item_state_id = '1'
+        @item.item_state_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Item state can't be blank"
       end
       it 'delivery_burdenが空では登録できない' do
-        @item.delivery_burden_id = '1'
+        @item.delivery_burden_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Delivery burden can't be blank"
       end
       it 'delivery_areaが空では登録できない' do
-        @item.delivery_area_id = '1'
+        @item.delivery_area_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Delivery area can't be blank"
       end
       it 'delivery_dayが空では登録できない' do
-        @item.delivery_day_id = '1'
+        @item.delivery_day_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Delivery day can't be blank"
       end
@@ -68,8 +68,18 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include "Selling price out of range"
       end
-      it 'selling_priceが半角数字でないと登録できない' do
+      it 'selling_priceが全角数字だと登録できない' do
         @item.selling_price = '１０００'
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Selling price out of range"
+      end
+      it 'selling_priceが半角英数混合では登録できないこと' do
+        @item.selling_price = '123abc'
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Selling price out of range"
+      end
+      it 'selling_priceが半角英語だけでは登録できないこと' do
+        @item.selling_price = 'abc'
         @item.valid?
         expect(@item.errors.full_messages).to include "Selling price out of range"
       end
