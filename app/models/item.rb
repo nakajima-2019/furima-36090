@@ -27,6 +27,4 @@ class Item < ApplicationRecord
   validates_inclusion_of :selling_price,in:300..9999999, message: "out of range"
   validates :selling_price,format: { with: /\A[0-9]+\z/, message: "half-width input"}
 
-  # validates_inclusion_of :selling_price,in: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "out of range"}
-
 end

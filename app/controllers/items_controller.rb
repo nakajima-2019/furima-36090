@@ -1,13 +1,10 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
-    @items = Item.order("created_at DESC")
   end
 
   def new
     @item = Item.new
-    # def autheniticate_user
-     if !user_signed_in?
+     if authenticate_user!
         flash[:notice]="You need to sign in or sign up before continuing."
         redirect_to("/users/sign_in")
       end
