@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-     if authenticate_user!
+     if authenticate_user! 
         flash[:notice]="You need to sign in or sign up before continuing."
         redirect_to("/users/sign_in")
       end
