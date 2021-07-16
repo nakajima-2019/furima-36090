@@ -6,6 +6,16 @@ RSpec.describe Item, type: :model do
   end
 
   describe "出品登録" do
+    context '新規出品できるとき' do
+      it 'name,description,image,category,item_state,delivery_burden,delivery_area,delivery_day,selling_priceが存在すれば登録できる' do
+        expect(@item).to be_valid
+      end
+      it 'selling_priceが半角数字で入力され、数値が範囲内であれば登録できる' do
+        @item.selling_price = 300
+        expect(@item).to be_valid
+      end
+    end
+
     context '新規出品できないとき' do
       it 'nameが空では登録できない' do
         @item.name = '' 
