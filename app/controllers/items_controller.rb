@@ -32,6 +32,9 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
+    unless current_user == @item.user
+      redirect_to action: :index
+    end
     if @item.save
       redirect_to item_path
     else
