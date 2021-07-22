@@ -1,3 +1,4 @@
 class Order < ApplicationRecord
-  validates :price, presence: true
+  belongs_to :item
+  has_one :address
 end
