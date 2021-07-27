@@ -14,6 +14,10 @@ RSpec.describe OrderAddress, type: :model do
       it '必須項目が存在すれば登録できる' do
         expect(@order_address).to be_valid
       end
+      it '建物名がなくても登録できる' do
+        @order_address.building = nil
+        expect(@order_address).to be_valid
+      end
     end
 
     context '商品購入できないとき' do
