@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :create]
   before_action :set_item, only: [:index, :create]
   before_action :move_to_root, only: [:index, :create]
 
@@ -39,8 +40,8 @@ class OrdersController < ApplicationController
   end
 
   def move_to_root
-    redirect_to root_path unless user_signed_in?
     redirect_to root_path unless @item.order.nil?
+    # redirect_to root_path if @item.order != nil
     redirect_to root_path if @item.user == current_user
   end
 end
