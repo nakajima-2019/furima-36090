@@ -7,6 +7,5 @@ FactoryBot.define do
     block               { 'バビロン' }
     building            { 'バビロン' }
     phone_number        { '0901234567' }
-
   end
 end

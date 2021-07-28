@@ -9,7 +9,6 @@ RSpec.describe OrderAddress, type: :model do
   end
 
   describe '商品購入' do
-
     context '商品購入できるとき' do
       it '必須項目が存在すれば登録できる' do
         expect(@order_address).to be_valid
@@ -31,7 +30,7 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include "Item can't be blank"
       end
-      it "tokenが空では登録できないこと" do
+      it 'tokenが空では登録できないこと' do
         @order_address.token = nil
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Token can't be blank")
@@ -39,7 +38,8 @@ RSpec.describe OrderAddress, type: :model do
       it 'postal_codeが空では登録できない' do
         @order_address.postal_code = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include "Postal code can't be blank", "Postal code is invalid. Enter it as follows (e.g. 123-4567)"
+        expect(@order_address.errors.full_messages).to include "Postal code can't be blank",
+                                                               'Postal code is invalid. Enter it as follows (e.g. 123-4567)'
       end
       it 'delivery_area_idが空では登録できない' do
         @order_address.delivery_area_id = 1
@@ -64,32 +64,32 @@ RSpec.describe OrderAddress, type: :model do
       it 'postal_codeが「3桁ハイフン4桁」でないと登録できない' do
         @order_address.postal_code = '1234567'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include "Postal code is invalid. Enter it as follows (e.g. 123-4567)"
+        expect(@order_address.errors.full_messages).to include 'Postal code is invalid. Enter it as follows (e.g. 123-4567)'
       end
       it 'phone_numberが9桁以下では登録できない' do
         @order_address.phone_number = '123456789'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include "Phone number is invalid. Input only 10-11 digits number"
+        expect(@order_address.errors.full_messages).to include 'Phone number is invalid. Input only 10-11 digits number'
       end
       it 'phone_numberが12桁以上では登録できない' do
         @order_address.phone_number = '123456789012'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include "Phone number is invalid. Input only 10-11 digits number"
+        expect(@order_address.errors.full_messages).to include 'Phone number is invalid. Input only 10-11 digits number'
       end
       it 'phone_numberは半角英字のみだと登録できない' do
         @order_address.phone_number = 'abcabcabca'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include "Phone number is invalid. Input only 10-11 digits number"
+        expect(@order_address.errors.full_messages).to include 'Phone number is invalid. Input only 10-11 digits number'
       end
       it 'phone_numberは半角英数字混合だと登録できない' do
         @order_address.phone_number = '123456789a'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include "Phone number is invalid. Input only 10-11 digits number"
+        expect(@order_address.errors.full_messages).to include 'Phone number is invalid. Input only 10-11 digits number'
       end
       it 'phone_numberは全角数字だと登録できない' do
         @order_address.phone_number = '１２３４５６７８９０'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include "Phone number is invalid. Input only 10-11 digits number"
+        expect(@order_address.errors.full_messages).to include 'Phone number is invalid. Input only 10-11 digits number'
       end
     end
   end

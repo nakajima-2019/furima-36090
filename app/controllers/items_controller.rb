@@ -51,6 +51,6 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    redirect_to action: :index if @item.order != nil || current_user != @item.user 
+    redirect_to action: :index if !@item.order.nil? || current_user != @item.user
   end
 end
