@@ -16,7 +16,7 @@ class Item < ApplicationRecord
     validates :image
   end
 
-  with_options numericality: { other_than: 1, message: "can't be blank" } do
+  with_options numericality: { other_than: 1, message: "は---以外を入力してください" } do
     validates :category_id
     validates :item_state_id
     validates :delivery_burden_id
@@ -25,6 +25,6 @@ class Item < ApplicationRecord
   end
 
   validates :selling_price, presence: true
-  validates_inclusion_of :selling_price, in: 300..9_999_999, message: 'out of range'
-  validates :selling_price, format: { with: /\A[0-9]+\z/, message: 'half-width input' }
+  validates_inclusion_of :selling_price, in: 300..9_999_999, message: 'は範囲内の金額を入力してください'
+  validates :selling_price, format: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' }
 end
