@@ -16,7 +16,7 @@ class Item < ApplicationRecord
     validates :image
   end
 
-  with_options numericality: { other_than: 1, message: "は---以外を入力してください" } do
+  with_options numericality: { other_than: 1, message: 'は---以外を入力してください' } do
     validates :category_id
     validates :item_state_id
     validates :delivery_burden_id

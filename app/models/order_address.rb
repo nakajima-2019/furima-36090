@@ -11,7 +11,7 @@ class OrderAddress
     validates :block
     validates :phone_number, format: { with: /\A[0-9]{10,11}\z/, message: 'は10～11桁の数字のみで入力してください' }
   end
-  validates :delivery_area_id, numericality: { other_than: 1, message: "は---以外を入力してください" }
+  validates :delivery_area_id, numericality: { other_than: 1, message: 'は---以外を入力してください' }
 
   def save
     # 購入情報を保存し、変数orderに代入する
