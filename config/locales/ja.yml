@@ -11,7 +11,7 @@ ja:
       item:
         name: 商品名
         description: 商品の説明
-        image: 商品画像
+        images: 商品画像
         category_id: カテゴリー
         item_state_id: 商品の状態
         delivery_burden_id: 配送料の負担
