@@ -78,6 +78,11 @@
   width: 150px;
 }
 
+.images{
+  height: 150px;
+  width: 150px;
+}
+
 .img-upload {
   display: flex;
   justify-content: space-between;
